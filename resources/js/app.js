@@ -4,8 +4,9 @@ window.Vue = require('vue').default;
 
 import Vue from 'vue';
 
-import Home from './components/Feedbacks.vue';
-import Login from './components/login_page.vue';
+import Home from './components/feedback/Feedbacks.vue';
+import Login from './components/auth/login_page.vue';
+import Register from './components/auth/register_page.vue';
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -15,6 +16,9 @@ Vue.component('Multiselect', Multiselect);
 
 import Pagination from 'laravel-vue-pagination';
 Vue.component('pagination', Pagination);
+
+import {registerLicense} from '@syncfusion/ej2-base';
+registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCe0x0RXxbf1x0ZFREal5XTnNcUiweQnxTdEFjXX1ecHBXTmBVUEZyXA==');
 
 const router = new VueRouter({
 routes: [
@@ -28,6 +32,11 @@ routes: [
         path: '/login',
         name: 'login',
         component: Login,
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register,
     },
     ]
 });

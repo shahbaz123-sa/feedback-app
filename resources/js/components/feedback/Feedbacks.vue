@@ -22,31 +22,31 @@
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
                         <!-- Left Text-->
-                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                            <div class="row" id="basic-table">
+                        <div class="col-lg-8 col-md-8 col-sm-12 d-none d-lg-flex">
+                            <div class="row w-100" id="basic-table">
                                 <div class="col-12">
-                                    <div class="card">
+                                    <div class="card" style="height:500px; overflow-y:scroll;">
                                         <div class="card-header">
                                             <h4 class="card-title">Feedbacks</h4>
                                         </div>
-                                        <div class="table-responsive" style="overflow-x: initial !important;">
+                                        <div class="table-responsive fix-header">
                                             <table class="table table-hover">
                                                 <thead>
                                                 <tr>
-                                                    <th>Sr. #</th>
-                                                    <th>Title</th>
-                                                    <th>Description</th>
-                                                    <th>User</th>
-                                                    <th>Category</th>
-                                                    <th>Comments</th>
-                                                    <th>Action</th>
+                                                    <th class="sticky-th-center">Sr. #</th>
+                                                    <th class="sticky-th-center">Title</th>
+                                                    <th class="sticky-th-center">Description</th>
+                                                    <th class="sticky-th-center">User</th>
+                                                    <th class="sticky-th-center">Category</th>
+                                                    <th class="sticky-th-center">Comments</th>
+                                                    <th class="sticky-th-center">Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr v-for="(feedback, index) in feedbacks.data" :key="feedback.id">
                                                     <td>
                                                         <div class="col-md-1" style="text-align:center;">
-                                                            {{ index+1 }}
+                                                            {{ index + 1 }}
                                                         </div>
                                                     </td>
                                                     <td>{{ feedback.title }}</td>
@@ -62,14 +62,24 @@
                                                         <p v-else>No comments</p>
                                                     </td>
                                                     <td>
-                                                        <button class="btn btn-success" @click="toggleRow(index)">
+                                                        <button v-if="selectedRow !== index" class="btn btn-success"
+                                                                @click="toggleRow(index)">
                                                             Comment
+                                                        </button>
+                                                        <button v-if="selectedRow === index" class="btn btn-primary"
+                                                                @click="submitComment(feedback.id, comment)">
+                                                            Submit
                                                         </button>
                                                         <div v-if="selectedRow === index">
                                                             <vue-editor v-model="comment" :editorToolbar="customToolbar"
                                                                         ref="editor"
                                                                         style="height:150px; margin-bottom:50px; min-width: 200px"
-                                                                        placeholder="Enter your comment"></vue-editor>
+                                                                        id="mentionIntegration"
+                                                                        placeholder="Enter @ to mention someone"></vue-editor>
+
+                                                            <ejs-mention target="#mentionIntegration"
+                                                                         :dataSource="users"
+                                                                         :fields="commentsField"></ejs-mention>
 
                                                             <p v-if="commentErrors.length">
                                                                 <ul>
@@ -78,19 +88,6 @@
                                                                     </li>
                                                                 </ul>
                                                             </p>
-                                                            <button class="btn btn-primary mt-5"
-                                                                    @click="submitComment(feedback.id, comment)">
-                                                                Submit
-                                                            </button>
-                                                        </div>
-                                                        <div v-if="mentioning && mentionUsersList.length > 0"
-                                                             class="mention-list">
-                                                            <ul>
-                                                                <li v-for="(user, index) in mentionUsersList"
-                                                                    :key="index" @click="selectUser(user)">
-                                                                    @{{ user.email }}
-                                                                </li>
-                                                            </ul>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -150,17 +147,20 @@
 
 <script>
 import {VueEditor} from 'vue2-editor';
+import {MentionComponent} from '@syncfusion/ej2-vue-dropdowns';
 
 export default {
     components: {
         VueEditor,
+        'ejs-mention': MentionComponent,
     },
     data() {
         return {
+            commentsField: {text: 'name'},
+
             customToolbar: [
-                [{'header': [false, 1, 2, 3, 4, 5, 6,]}],
                 ['bold', 'italic', 'underline'],
-                [{'list': 'ordered'}, {'list': 'bullet'}, {'list': 'check'}],
+                ['blockquote', 'code-block'],
             ],
             catagories: [],
             users: [],
@@ -177,7 +177,6 @@ export default {
             selectedRow: -1,
             comment: '',
 
-            mentioning: false,
             mentionUsersList: [],
         };
     },
@@ -229,11 +228,11 @@ export default {
                     console.error('Error fetching feedback data:', error);
                 });
         },
-
         toggleRow(index) {
             this.selectedRow = (this.selectedRow === index) ? -1 : index;
         },
         submitComment(feedbackId, comment) {
+            this.selectedRow = -1;
             this.commentErrors = [];
             !feedbackId ? this.commentErrors.push('Commenting on invalid feedback') : null;
             !comment ? this.commentErrors.push('Comment is required.') : null;
@@ -257,25 +256,6 @@ export default {
                     });
             }
         },
-
-        mentionUsers() {
-            if (this.comment.endsWith('@')) {
-                this.mentionUsersList = this.users.filter(user =>
-                    user.email.toLowerCase().includes(this.comment.toLowerCase().replace('@', ''))
-                );
-                this.mentioning = true;
-            } else {
-                this.mentioning = false;
-            }
-        },
-        selectUser(user) {
-            // Append the selected user's email to the comment text
-            this.comment += '@' + user.email + ' ';
-            this.mentioning = false;
-            this.mentionUsersList = [];
-        },
-
-
     },
     mounted() {
         this.get_feedback();
@@ -300,6 +280,35 @@ export default {
     }
 }
 </script>
+<style>
+.sticky-th-center {
+    z-index: 1;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #f3f2f7 !important;
+}
+
+.sticky-th-left {
+    z-index: 1;
+    position: sticky;
+    top: 0px;
+    text-align: left;
+    vertical-align: middle !important;
+}
+
+.fix-header {
+    overflow-x: initial !important;
+}
+
+@media (max-width: 500px) {
+    .fix-header {
+        overflow-x: auto !important;
+    }
+}
+</style>
 <style scoped>
 .mention-list {
     position: absolute;
@@ -319,5 +328,14 @@ export default {
     cursor: pointer;
     padding: 5px 10px;
 }
+
+.mention-item {
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.mention-selected {
+    background: rgb(192, 250, 153);
+}
 </style>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src="../../../../node_modules/vue-multiselect/dist/vue-multiselect.min.css"></style>

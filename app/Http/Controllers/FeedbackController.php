@@ -22,7 +22,9 @@ class FeedbackController extends Controller
                 'feedback_category_id' => $validatedData['category'],
                 'description' => $validatedData['feedbackContent'],
             ]);
-            $feedbacks = Feedback::with('user', 'feedbackCategory', 'comments')->paginate(5);
+            $feedbacks = Feedback::with('user', 'feedbackCategory', 'comments')
+                ->orderBy('id', 'desc')
+                ->paginate(5);
             return response()->json(['message' => 'success', 'data' => $feedbacks]);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
@@ -31,7 +33,9 @@ class FeedbackController extends Controller
 
     public function get_feedback()
     {
-        $feedbacks = Feedback::with('user', 'feedbackCategory', 'comments')->paginate(5);
+        $feedbacks = Feedback::with('user', 'feedbackCategory', 'comments')
+            ->orderBy('id', 'desc')
+            ->paginate(5);
         return response()->json($feedbacks);
     }
 }

@@ -20,6 +20,8 @@ This repo is related to my feedback project
 
 ## Application Setup
 
-1. Place the application's folder (named `feedback-app`) inside `xampp\htdocs`.
-2. Run Apache server.
-3. Open `http://127.0.0.1:8000/#/` in your browser.
+1. Place the application's folder (named feedback-app) inside the xampp\htdocs directory.
+2. Start the Apache server.
+3. Navigate to the application directory in your terminal.
+4. Run the command php artisan serve.
+5. Open your web browser and go to http://127.0.0.1:8000/#/.

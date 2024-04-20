@@ -924,7 +924,7 @@
   "resolved" "https://registry.npmjs.org/@babel/regjsgen/-/regjsgen-0.8.0.tgz"
   "version" "0.8.0"
 
-"@babel/runtime@^7.15.4", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.13.10", "@babel/runtime@^7.15.4", "@babel/runtime@^7.8.4":
   "integrity" "sha512-+BIznRzyqBf+2wCTxcKE3wDjfGeCoVE61KSHGpkzqrLi8qxqFwBeUFyId2cxkTmm55fzDGnm0+yCxaxygrLUnQ=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.24.1.tgz"
   "version" "7.24.1"
@@ -1054,6 +1054,118 @@
   "integrity" "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   "version" "2.11.8"
+
+"@syncfusion/ej2-base@~25.1.35":
+  "integrity" "sha512-eH/zLft7j5jhbNquVNcKoDmlx+ZU/77mHAJwpG9Ad4+C/+7UcWlIi/RDORJ0QreosZM4gMyCYzxDAZ5QOI3txw=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-base/-/ej2-base-25.1.35.tgz"
+  "version" "25.1.35"
+  dependencies:
+    "@syncfusion/ej2-icons" "~25.1.35"
+
+"@syncfusion/ej2-buttons@~25.1.35", "@syncfusion/ej2-buttons@~25.1.39":
+  "integrity" "sha512-QUAiHhswM3hP0pGjantmc785yntT3JBx0UEZtL3cG9bZLjRQLi2cAGmWDdA1U6cBmsEvf0vzvRS7uhAnfRN0JQ=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-buttons/-/ej2-buttons-25.1.39.tgz"
+  "version" "25.1.39"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+
+"@syncfusion/ej2-data@~25.1.35":
+  "integrity" "sha512-eHWkoQcokKFiLUMpcw2IM1ul9v8HeRgIrUzowyWPpamuZASX8luczDy3VLR5AX0YeiE9aNv3QKsr04t4F1GRcQ=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-data/-/ej2-data-25.1.35.tgz"
+  "version" "25.1.35"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+
+"@syncfusion/ej2-dropdowns@25.1.40":
+  "integrity" "sha512-zIvf6E+JkSAd9ggrc8ZSpf6JPIumxABndJAzBg78rJ6qyPhIM477v/sdft5hdxCVli1D7xsYqwr16Gki3oGWGw=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-dropdowns/-/ej2-dropdowns-25.1.40.tgz"
+  "version" "25.1.40"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-data" "~25.1.35"
+    "@syncfusion/ej2-inputs" "~25.1.40"
+    "@syncfusion/ej2-lists" "~25.1.39"
+    "@syncfusion/ej2-navigations" "~25.1.40"
+    "@syncfusion/ej2-notifications" "~25.1.35"
+    "@syncfusion/ej2-popups" "~25.1.39"
+
+"@syncfusion/ej2-icons@~25.1.35":
+  "integrity" "sha512-E8ypbeB9ISTsaj8Q29w3Ysh6HG35GOdTjfaU6JTCaZ9wP30q04B4WfN9lqcd42Q198qhynFAXd3lJyYev68aGw=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-icons/-/ej2-icons-25.1.35.tgz"
+  "version" "25.1.35"
+
+"@syncfusion/ej2-inputs@~25.1.40":
+  "integrity" "sha512-5b3WWx3MFKKqSktKLprzDYSw6kK8m9xPJ5aW5KYxQiBob5cQ5SdE5j4K30MdenDIzjlSofyZ6xX0+UZNgEkhUA=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-inputs/-/ej2-inputs-25.1.40.tgz"
+  "version" "25.1.40"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-buttons" "~25.1.39"
+    "@syncfusion/ej2-popups" "~25.1.39"
+    "@syncfusion/ej2-splitbuttons" "~25.1.38"
+
+"@syncfusion/ej2-lists@~25.1.39":
+  "integrity" "sha512-bWWsr1pYQDxiupF80yvBPKCtYw1V92DuMpqgtfj90vl5xInpRCHl1mSNDETbNgl//BthRkUo5yQtI2deX9X0Hw=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-lists/-/ej2-lists-25.1.39.tgz"
+  "version" "25.1.39"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-buttons" "~25.1.39"
+    "@syncfusion/ej2-data" "~25.1.35"
+    "@syncfusion/ej2-popups" "~25.1.39"
+
+"@syncfusion/ej2-navigations@~25.1.40":
+  "integrity" "sha512-dlrt1bT3uaW+hW+O7x5SiWVgnN2lwxWgpl7qf20EkZuknMlCcXpOmxzbP6HCwInVbyoZLbezLoQHDeOQ7Jk56A=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-navigations/-/ej2-navigations-25.1.40.tgz"
+  "version" "25.1.40"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-buttons" "~25.1.39"
+    "@syncfusion/ej2-data" "~25.1.35"
+    "@syncfusion/ej2-inputs" "~25.1.40"
+    "@syncfusion/ej2-lists" "~25.1.39"
+    "@syncfusion/ej2-popups" "~25.1.39"
+
+"@syncfusion/ej2-notifications@~25.1.35":
+  "integrity" "sha512-ioSI36uCSA9hxB8fiUAvI0u7c2eIs1sw3kC0cfL2HbGHHOmhWjm4yoTIl13sKoXU6Sv2A2V3xsFAf97cBTjFvA=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-notifications/-/ej2-notifications-25.1.35.tgz"
+  "version" "25.1.35"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-buttons" "~25.1.35"
+    "@syncfusion/ej2-popups" "~25.1.35"
+
+"@syncfusion/ej2-popups@~25.1.35", "@syncfusion/ej2-popups@~25.1.38", "@syncfusion/ej2-popups@~25.1.39":
+  "integrity" "sha512-4BN3w9E/5uO27En/tXl5MYywTKNlAKYSwCIbQip+pH2rstcF6bZ1Qu01alGqN9KA4aMUEMOlN4fQcZ0EpQFLWQ=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-popups/-/ej2-popups-25.1.39.tgz"
+  "version" "25.1.39"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-buttons" "~25.1.39"
+
+"@syncfusion/ej2-splitbuttons@~25.1.38":
+  "integrity" "sha512-D5RkU93v2UdbWeny6qkfwiBx38jDe0suHZv1CYES7dnFcQKkKOUjI2TBwIi5d7aFyf4W8reQt7YPmOyNt/8b/Q=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-splitbuttons/-/ej2-splitbuttons-25.1.38.tgz"
+  "version" "25.1.38"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-popups" "~25.1.38"
+
+"@syncfusion/ej2-vue-base@~25.1.35":
+  "integrity" "sha512-S42jts0X4E3IsrndtUY7yjziF2hSeLodTa7kOQiypLxP1yRkjLpFggzZzfqModz6BTBYoS5kTu4wWT29flqKkQ=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-vue-base/-/ej2-vue-base-25.1.35.tgz"
+  "version" "25.1.35"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+
+"@syncfusion/ej2-vue-dropdowns@^25.1.40":
+  "integrity" "sha512-SKEMB6f9fTp2zwUpbrLIZ77iwWGCWx9YDh46BrKN51CGjN2ZIgMhvG2eT+puIrlAklNagrM8Gtyms3TUtiOe9g=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-vue-dropdowns/-/ej2-vue-dropdowns-25.1.40.tgz"
+  "version" "25.1.40"
+  dependencies:
+    "@syncfusion/ej2-base" "~25.1.35"
+    "@syncfusion/ej2-dropdowns" "25.1.40"
+    "@syncfusion/ej2-vue-base" "~25.1.35"
 
 "@trysound/sax@0.2.0":
   "integrity" "sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA=="
@@ -5457,6 +5569,11 @@
     "commander" "^2.20.0"
     "source-map-support" "~0.5.20"
 
+"textarea-caret@^3.1.0":
+  "integrity" "sha512-cXAvzO9pP5CGa6NKx0WYHl+8CHKZs8byMkt3PCJBCmq2a34YA9pO1NrQET5pzeqnBjBdToF5No4rrmkDUgQC2Q=="
+  "resolved" "https://registry.npmjs.org/textarea-caret/-/textarea-caret-3.1.0.tgz"
+  "version" "3.1.0"
+
 "thunky@^1.0.2":
   "integrity" "sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA=="
   "resolved" "https://registry.npmjs.org/thunky/-/thunky-1.1.0.tgz"
@@ -5614,6 +5731,16 @@
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
 
+"v-tooltip@^2.0.0", "v-tooltip@^2.1.3":
+  "integrity" "sha512-xXngyxLQTOx/yUEy50thb8te7Qo4XU6h4LZB6cvEfVd9mnysUxLEoYwGWDdqR+l69liKsy3IPkdYff3J1gAJ5w=="
+  "resolved" "https://registry.npmjs.org/v-tooltip/-/v-tooltip-2.1.3.tgz"
+  "version" "2.1.3"
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "lodash" "^4.17.21"
+    "popper.js" "^1.16.1"
+    "vue-resize" "^1.0.1"
+
 "v-viewer@^1.6.4":
   "integrity" "sha512-K3PQ8utnVXXBCa5IRXRAhk/m83fNIsK77gTSXqAmPJe8eDTaSY1nifAOWPUmQDjzuCxYfa14UjGftHR9MFV70Q=="
   "resolved" "https://registry.npmjs.org/v-viewer/-/v-viewer-1.7.4.tgz"
@@ -5658,10 +5785,24 @@
     "vue-hot-reload-api" "^2.3.0"
     "vue-style-loader" "^4.1.0"
 
+"vue-mention@^1.1.0":
+  "integrity" "sha512-yuFewv8i70qIL5HWdi9UHdwXAxeis1RR/FN00GQ0P7LJeqkh8YD9CWIjnD2owO1yLjgFol7t9uvax3rsl+oigg=="
+  "resolved" "https://registry.npmjs.org/vue-mention/-/vue-mention-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "textarea-caret" "^3.1.0"
+
 "vue-multiselect@^2.1.9":
   "integrity" "sha512-nGEppmzhQQT2iDz4cl+ZCX3BpeNhygK50zWFTIRS+r7K7i61uWXJWSioMuf+V/161EPQjexI8NaEBdUlF3dp+g=="
   "resolved" "https://registry.npmjs.org/vue-multiselect/-/vue-multiselect-2.1.9.tgz"
   "version" "2.1.9"
+
+"vue-resize@^1.0.1":
+  "integrity" "sha512-z5M7lJs0QluJnaoMFTIeGx6dIkYxOwHThlZDeQnWZBizKblb99GSejPnK37ZbNE/rVwDcYcHY+Io+AxdpY952w=="
+  "resolved" "https://registry.npmjs.org/vue-resize/-/vue-resize-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "@babel/runtime" "^7.13.10"
 
 "vue-router@^3.6.5":
   "integrity" "sha512-VYXZQLtjuvKxxcshuRAwjHnciqZVoXAjTjcqBTz4rKc8qih9g9pI3hbDjmqXaHdgL3v8pV6P8Z335XvHzESxLQ=="

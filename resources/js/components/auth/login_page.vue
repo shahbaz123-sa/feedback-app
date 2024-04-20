@@ -12,6 +12,7 @@
                         <!-- Left Text-->
                         <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
                             <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
+                                <img class="img-fluid" src="/images/login-v2.svg" alt="Login V2"/>
                             </div>
                         </div>
                         <!-- /Left Text-->
@@ -21,11 +22,6 @@
                                 <h3 class="card-title fw-bold mb-1">Welcome to Feedback System! 👋</h3>
                                 <p class="card-text mb-2">Unlock seamless efficiency and enhanced productivity</p>
                                 <div class="auth-login-form mt-2">
-                                    <div class="form-floating mb-1">
-                                        <input type="text" v-model="name" class="form-control" id="floatingInput"
-                                               placeholder="Enter name">
-                                        <label for="floatingInput">Name</label>
-                                    </div>
                                     <div class="form-floating mb-1">
                                         <input type="text" v-model="email" class="form-control" id="floatingInput"
                                                placeholder="abc@company.com">
@@ -52,16 +48,10 @@
                                            style="padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px">
                                             {{ success }}</p>
                                     </div>
-                                    <div class="row">
-                                        <button type="button"
-                                                class="btn btn-primary w-50 waves-effect waves-float waves-light"
-                                                @click="login()">Login
-                                        </button>
-                                        <button type="button"
-                                                class="btn btn-success w-50 waves-effect waves-float waves-light"
-                                                @click="register()">Register
-                                        </button>
-                                    </div>
+                                    <button type="button"
+                                            class="btn btn-primary w-100 waves-effect waves-float waves-light"
+                                            @click="login()">Login
+                                    </button>
                                     <p v-if="errors.length">
                                         <b>Please correct the following error(s):</b>
                                         <ul>
@@ -69,7 +59,10 @@
                                         </ul>
                                     </p>
                                 </div>
-                               </div>
+                                <p class="text-center mt-2"><span>Don't have an account? </span>
+                                    <router-link to="/register"><span>Create account</span></router-link>
+                                </p>
+                            </div>
                         </div>
                         <!-- /Login-->
                     </div>
@@ -84,12 +77,11 @@
 export default {
     data() {
         return {
-            name: '',
             email: '',
             password: '',
             showPassword: '',
             success: '',
-            errors:[],
+            errors: [],
         };
     },
     methods: {
@@ -110,9 +102,8 @@ export default {
                 .then(data => {
                     if (data.data.data === "login") {
                         localStorage.setItem('accessToken', data.data.access_token);
-                        this.$router.push({ name: 'home' });
-                    }
-                    else{
+                        this.$router.push({name: 'home'});
+                    } else {
                         this.success = data.data.message;
                     }
                 })
@@ -120,29 +111,6 @@ export default {
                     console.log(err.message);
                 })
         },
-        register() {
-            this.errors = [];
-            !this.name ? this.errors.push('Name is required.') : null;
-            !this.email ? this.errors.push('Email is required.') : null;
-            !this.password ? this.errors.push('Password is required.') : null;
-
-            if (this.errors.length > 0) {
-                return;
-            }
-            axios.post('./register_user', {
-                name: this.name,
-                email: this.email,
-                password: this.password
-            })
-                .then(data => {
-                    if (data.data.data !== 'success') {
-                        this.success = data.data.message;
-                    }
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        }
     },
 }
 </script>
